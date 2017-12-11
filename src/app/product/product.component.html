@@ -1,0 +1,9 @@
+<h1>Products List</h1>
+<fieldset *ngFor = 'let products of product; let i = index'>
+        <img [src]='products.imageUrl' [alt]= 'products.imageUrl' >
+        <p>{{products.title}}</p>
+        <p>{{products.price | currency}}</p>
+        <a [routerLink]="['Edit', i]" (click) = 'info(i)'><button>Edit</button></a>
+        <button (click)= 'delete(i)'>Delete</button>
+    
+</fieldset>

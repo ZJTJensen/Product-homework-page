@@ -1,0 +1,27 @@
+<h1>Create a New Product</h1>
+<form #formErrors='ngForm' (submit)="createNewProduct()">
+  Title: <input 
+  type="text"
+  name ="title"
+  minlength="4"
+  required
+  [(ngModel)]="myProduct.title"
+  #title='ngModel'
+  ><span *ngIf ="title.errors">A Title is Required</span><br>
+  Price: <input 
+  type="number"
+  name="price"
+  min="0.01"
+  step="any"
+  required
+  [(ngModel)]="myProduct.price"
+  #price='ngModel'
+  ><span *ngIf ="price.errors">A Price is Required</span><br>
+  Image Url: <input 
+  type="text"
+  name="imageUrl"
+  [(ngModel)]="myProduct.imageUrl"
+  #imageUrl='ngModel'
+  ><br>
+  <input *ngIf="formErrors.valid" type="submit" value="Create">
+</form>
